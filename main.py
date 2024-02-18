@@ -1,24 +1,8 @@
 import os
-import logging
 from flask import Flask, request
 from twilio.twiml.messaging_response import MessagingResponse
 
 app = Flask(__name__)
-
-# Configurar o logger
-logger = logging.getLogger(__name__)
-logger.setLevel(logging.INFO)
-
-# Criar um manipulador para o registro de mensagens no console
-console_handler = logging.StreamHandler()
-console_handler.setLevel(logging.INFO)
-
-# Criar um formato para as mensagens de log
-formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-console_handler.setFormatter(formatter)
-
-# Adicionar o manipulador ao logger
-logger.addHandler(console_handler)
 
 registers = [["+558199998295", 0, False]]
 

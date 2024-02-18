@@ -1,21 +1,33 @@
 import os
+import logging
 from flask import Flask, request
 from twilio.twiml.messaging_response import MessagingResponse
 
 app = Flask(__name__)
 
+# Configurar o logger
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
+
+# Criar um manipulador para o registro de mensagens no console
+console_handler = logging.StreamHandler()
+console_handler.setLevel(logging.INFO)
+
+# Criar um formato para as mensagens de log
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+console_handler.setFormatter(formatter)
+
+# Adicionar o manipulador ao logger
+logger.addHandler(console_handler)
+
 registers = [["+558199998295", 0, False]]
 
 @app.route('/bot', methods=['POST'])
 def bot():
-
-    print(request.values)
     
     original_msg = request.values.get('Body', '')
     number_requested = request.values.get('From', '')
-    number_requested= number_requested[9:]
-
-    print(number_requested)
+    number_requested= number_requested[9:]    
 
     find = False
     
@@ -24,7 +36,6 @@ def bot():
             resps_order = i[1]
             find = True
             indice = registers.index(i)
-            print("\n\nO número esta nos registros e seu valor atual é " + str(i[1]))
             break
 
     if find == False:
@@ -34,9 +45,6 @@ def bot():
         new_costumer.append(False)
         registers.append(new_costumer)
         resps_order = 0
-        print("\n\nEntrei no false")
-
-    print("\n\n" + str(find))
 
     resp= MessagingResponse()
     msg = resp.message()
@@ -44,8 +52,6 @@ def bot():
     lower_msg = original_msg.lower()
     lower_msg = lower_msg.replace(' ', '')
     lower_msg = lower_msg.replace('\n', '')
-    print("\n\nA mensagem original é " + str(original_msg))
-    print("\n\nA mensagem em caixa baixa é: " + str(lower_msg))
 
     
     if resps_order == 0 or lower_msg in ['voltar', 'volta']:
@@ -100,7 +106,6 @@ Formulário: '''
                 message = '''Não entendi!
 Você tem interesse em participar? responda com 'S' para sim ou 'N' para não. '''
     msg.body(message)
-    print ("\n\nO numero do fluxo de resposta é " + str(registers[indice][1]))
     return str(resp)
 
 @app.route('/')

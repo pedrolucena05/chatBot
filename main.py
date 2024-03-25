@@ -4,7 +4,7 @@ from twilio.twiml.messaging_response import MessagingResponse
 
 app = Flask(__name__)
 
-registers = [["+558199998295", 0, False]]
+registers = [["", 0, False]]
 
 @app.route('/bot', methods=['POST'])
 def bot():

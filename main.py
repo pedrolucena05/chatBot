@@ -43,16 +43,16 @@ def bot():
                     
 Meu nome é Adriana e gostaria de saber se você deseja atendimento para:
                 
-            1 - Feira Bom Jesus; 
-            2 - Feira da Aurora;
+            1 - Feira da sulanca; 
+            2 - Feira de Passira;
         
 Digite o número da feira que deseja:'''
         registers[indice][1] = 1
     
     elif resps_order == 1:
         
-        if lower_msg in ['1', 'feirabomjesus', 'bomjesus']:
-            message = '''\tA Feira Bom Jesus acontece aos domingos das 10:00h às 19:00h, podendo postergar o horário de encerramneto em dias de maior movimento.
+        if lower_msg in ['1', 'feiradasulanca', 'feirasulanca', 'sulanca', 'feira1']:
+            message = '''\tA feira da Sulanca acontece aos sabados das 10:00h às 17:00h, podendo postergar o horário de encerramneto em dias de maior movimento.
                          
 Valores: 
    
@@ -62,8 +62,8 @@ Valores:
 Você tem interesse em participar? responda com 'S' para sim ou 'N' para não. Ou digite 'voltar' para voltar para o menu inicial. '''
             registers[indice][1] = 2
         
-        elif lower_msg in ['2', 'feiradaaurora', 'feiraaurora', 'aurora']:
-            message = '''A Feira da Aurora acontece aos Sábados das 15:00h às 20:00h. 
+        elif lower_msg in ['2', 'feiradepassira', 'feirapassira', 'apassira']:
+            message = '''A Feira de Passira acontece aos Sábados das 10:00h às 16:00h. 
                          
 Valor: R$120,00 por feira; 
                             
@@ -94,7 +94,7 @@ Você tem interesse em participar? responda com 'S' para sim ou 'N' para não. '
 
 @app.route('/')
 def hello_world():
-    return 'chat botasasss mais outra uma vez por favor'
+    return 'ChatBot API'
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))

@@ -11,4 +11,4 @@ Passos:
 1- subir o codigo no servidor (AWS , Azure , Ngrok);  
 2- Vincular o algoritmo numa empresa autorizada do whatsapp (Z-api , AWS);
 
-A twillio oferece um modelo sandbox que permite fazer testes. 
+A Twillio oferece um modelo sandbox que permite fazer testes. 

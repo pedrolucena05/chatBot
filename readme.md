@@ -1,4 +1,4 @@
-# Exemplo de chatbot para WhatsApp com Flask API e Twilio
+# Exemplo de chatbot para WhatsApp com Flask API e Twilio library
 
 As dependências utilizadas estão em requirements.txt
 

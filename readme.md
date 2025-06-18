@@ -2,7 +2,7 @@
 
 As dependências utilizadas estão em requirements.txt
 
-Para funcionar corretamente é importante utilizar o ngrok (https://ngrok.com/download) para criar um servidor local com https. 
+Para funcionar corretamente é importante utilizar o ngrok (https://ngrok.com/download) para criar um servidor local com https, ou usar algum serviço de cloud (AWS, Azure). 
 
 É necessário também usar alguma empresa autorizada do whatsapp para vincular o numero ao algoritmo (twillio, z-api por exemplo).
 
